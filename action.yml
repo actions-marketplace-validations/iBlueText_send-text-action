@@ -1,0 +1,44 @@
+name: 'iBlueText: Send iMessage, SMS & WhatsApp'
+description: 'Text a phone from your workflow: blue iMessage to iPhones, SMS to everyone else, or WhatsApp, sent from your own iBlueText number.'
+author: 'iBlueText (RG Loomis LLC)'
+branding:
+  icon: 'message-circle'
+  color: 'blue'
+inputs:
+  api-key:
+    description: 'Your iBlueText API key (ibt_live_...). Store it as a repository secret, e.g. secrets.IBLUETEXT_API_KEY.'
+    required: true
+  to:
+    description: 'Phone number(s) with country code, e.g. +18135550142. Separate several with commas or new lines.'
+    required: true
+  message:
+    description: 'The text to send.'
+    required: true
+  channel:
+    description: 'auto (iMessage to iPhones, SMS to everyone else), imessage, sms, or whatsapp.'
+    required: false
+    default: 'auto'
+  media-url:
+    description: 'Optional https:// link to a photo, video, PDF or other file to attach.'
+    required: false
+    default: ''
+  line-id:
+    description: 'Optional: which of your sending lines to use (iMessage/SMS only). Default = your active line.'
+    required: false
+    default: ''
+  wait:
+    description: 'Seconds to wait for each message to be sent before the step finishes (0 = queue it and move on, max 300).'
+    required: false
+    default: '0'
+  fail-on-error:
+    description: 'Fail the step if a message cannot be queued (or, with wait, if it fails). Set to false for best-effort alerts.'
+    required: false
+    default: 'true'
+outputs:
+  message-ids:
+    description: 'Comma-separated iBlueText message IDs, in the same order as "to".'
+  status:
+    description: 'Overall result: queued, sent, delivered, failed or partial.'
+runs:
+  using: 'node24'
+  main: 'index.js'
