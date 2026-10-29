@@ -1,5 +1,5 @@
 name: 'iBlueText: Send iMessage, SMS & WhatsApp'
-description: 'Text a phone from your workflow: blue iMessage to iPhones, SMS to everyone else, or WhatsApp, sent from your own iBlueText number.'
+description: 'Text a phone from your workflow: blue iMessage to iPhones, SMS to everyone else, or WhatsApp, from your own number.'
 author: 'iBlueText (RG Loomis LLC)'
 branding:
   icon: 'message-circle'
